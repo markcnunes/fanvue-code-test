@@ -6,6 +6,7 @@ const LoadXml = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+    // REACT_APP_AWS e.g. = https://xxxx.xxxx.amazonaws.com/
     Axios.get(process.env.REACT_APP_AWS, {
       "Content-Type": "application/xml; ; charset=utf-8",
     })

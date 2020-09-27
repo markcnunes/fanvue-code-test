@@ -11,6 +11,7 @@ const ImageUpload = () => {
     let fileUpload = new FormData();
     fileUpload.append("photo", pictures);
 
+    // REACT_APP_AWS e.g. = https://xxxx.xxxx.amazonaws.com/
     const UPLOAD_URL =
       process.env.REACT_APP_AWS +
       "new-image--" +
