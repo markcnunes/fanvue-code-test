@@ -1,15 +1,10 @@
 import React from "react";
 import Axios from "axios";
-import ImageUploader from "react-images-upload";
 
 const ImageUpload = () => {
-  const onDrop = (picture) => {
-    submitForm(picture);
-  };
-
-  const submitForm = (pictures) => {
+  const submitForm = (picture) => {
     let fileUpload = new FormData();
-    fileUpload.append("photo", pictures);
+    fileUpload.append("photo", picture);
 
     // REACT_APP_AWS e.g. = https://xxxx.xxxx.amazonaws.com/
     const UPLOAD_URL =
@@ -24,16 +19,15 @@ const ImageUpload = () => {
       .catch((err) => alert("File Upload Error"));
   };
 
+  const onChangeHandler = (event) => {
+    const picture = event.target.files[0];
+    submitForm(picture);
+  };
+
   return (
     <div>
       <h3>Upload Image</h3>
-      <ImageUploader
-        withIcon={true}
-        buttonText="Choose images"
-        onChange={onDrop}
-        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-        maxFileSize={5242880}
-      />
+      <input type="file" name="file" onChange={onChangeHandler} />
     </div>
   );
 };

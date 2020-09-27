@@ -25,7 +25,7 @@ const LoadImage = () => {
       ) : (
         <div>
           <h3>Get Image</h3>
-          <img src={`${data}`} />
+          <img alt="picsum-api" src={`${data}`} />
         </div>
       )}
     </div>

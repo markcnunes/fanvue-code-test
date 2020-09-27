@@ -3,3 +3,15 @@
   max-width: 90%;
   margin: 0 auto;
 }
+
+.App > div {
+  background: white;
+
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.App > div:last-child {
+  margin-bottom: 50px;
+}
