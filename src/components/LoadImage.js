@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 
 const LoadImage = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    Axios.get("https://picsum.photos/200/300.jpg", {
+  const fetchData = async () => {
+    return await axios.get("https://picsum.photos/200/300.jpg", {
       "Content-Type": "application/xml; charset=utf-8",
-    })
-      .then(function (response) {
-        setData(response.config.url);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    fetchData().then((res) => {
+      setData(res.config.url);
+      setLoading(false);
+    });
   }, []);
 
   return (
